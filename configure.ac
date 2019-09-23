@@ -80,7 +80,7 @@ AM_CONDITIONAL(WITH_PYTHON2, [test $with_python2 = yes])
     AC_SUBST([PYTHON2_EXEC_PREFIX], ['${exec_prefix}'])
 
     PYTHON2_EXECDIR=`$PYTHON -c "import distutils.sysconfig; \
-        print(distutils.sysconfig.get_python_lib(1,0,prefix='$PYTHON2_EXEC_PREFIX'))"`
+        print(distutils.sysconfig.get_python_lib(1,0,prefix='$PYTHON2_EXEC_PREFIX').replace('site-packages','dist-packages'))"`
 
     AC_SUBST(pyexecdir, $PYTHON2_EXECDIR)
 [fi]
